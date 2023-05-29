@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\example\FirstController;
+use App\Http\Controllers\countryController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,8 +25,8 @@ Route::get('/about', function () {
     return view ('about');
 });
 
+//*  ************ controller ********************
+
 Route::get('/home', [FirstController::class, 'index'])->name('home');
 
-// Route::get('/home',function() {
-//      return view ('home');
-// });
+Route::get('/country', countryController::class)->name('country')->middleware('country');
